@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Utensils } from 'lucide-react';
+import logo from '../assets/wellfed-logo.png';
 
 const Preloader = ({ onComplete }) => {
   const [count, setCount] = useState(0);
@@ -165,34 +166,15 @@ const Preloader = ({ onComplete }) => {
                         key="logo"
                         className="flex flex-col items-center"
                      >
-                         {/* Logo Icon */}
-                         <motion.div
-                            initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -20, scale: 0.8 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="mb-4 md:mb-8 p-4 rounded-full border border-[#CA673A]/30 bg-[#CA673A]/10 text-[#CA673A]"
-                         >
-                             <Utensils size={48} className="md:w-20 md:h-20" />
-                         </motion.div>
-
-                         {/* Text */}
-                         <div className="flex overflow-hidden relative">
-                             {"WellFed".split("").map((char, i) => (
-                                 <motion.span
-                                    key={i}
-                                    variants={textVariants}
-                                    initial="hidden"
-                                    animate="visible"
-                                    exit="exit"
-                                    custom={i}
-                                    transition={{ delay: i * 0.05 + 0.3 }} // Added slight delay for logo
-                                    className="text-[12vw] md:text-[8vw] font-anton text-[#F9F7F2] leading-none tracking-tight"
-                                 >
-                                     {char}
-                                 </motion.span>
-                             ))}
-                         </div>
+                         <motion.img
+                            src={logo}
+                            alt="WellFed Logo"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="w-96 md:w-[45rem] object-contain rounded-3xl"
+                         />
                      </motion.div>
                  )}
              </AnimatePresence>

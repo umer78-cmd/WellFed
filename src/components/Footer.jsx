@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Twitter, Facebook, ArrowUpRight } from 'lucide-react';
+import logo from '../assets/wellfed-logo.png';
 
 const Footer = () => {
   return (
@@ -18,9 +19,8 @@ const Footer = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
             
-            {/* Brand / Newsletter */}
-            <div className="md:col-span-5 md:pr-12 text-center md:text-left">
-                <span className="font-anton text-3xl tracking-wide mb-8 block">WellFed</span>
+            <div className="md:col-span-12 md:pr-12 text-center md:text-left">
+                <img src={logo} alt="WellFed" className="h-60 object-contain mb-8 mx-auto md:mx-0 rounded-2xl" />
                 <h4 className="font-dm text-2xl mb-8">Join the table. Get weekly recipes and kitchen hacks.</h4>
                 <form className="relative max-w-md mx-auto md:mx-0">
                     <input 

@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#97A97C]/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'
+        scrolled ? 'bg-[#1A4D2E]/95 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
@@ -35,13 +35,13 @@ const Navbar = () => {
         {/* Logo and Socials */}
         <div className="flex items-center gap-6">
              <a href="#" className="flex items-center">
-                <Logo className="h-8" />
+                <Logo className={`transition-all duration-500 ease-in-out ${scrolled ? 'h-16' : 'h-28'}`} />
              </a>
              <div className="hidden md:flex gap-2">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors text-primary">
+                <a href="#" className={`w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors ${scrolled ? 'text-white' : 'text-primary'}`}>
                     <Instagram size={18} />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors text-primary">
+                <a href="#" className={`w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-colors ${scrolled ? 'text-white' : 'text-primary'}`}>
                     <Twitter size={18} /> {/* Using Twitter as placeholder for generic social if TikTok not available, or I could use a custom SVG for Tiktok */}
                 </a>
             </div>
@@ -69,9 +69,8 @@ const Navbar = () => {
                 Download Our App
              </button>
              
-             {/* Mobile Toggle */}
              <button
-                className="md:hidden text-primary bg-white/20 p-2 rounded-full"
+                className={`md:hidden bg-white/20 p-2 rounded-full ${scrolled ? 'text-white' : 'text-primary'}`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
              >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
